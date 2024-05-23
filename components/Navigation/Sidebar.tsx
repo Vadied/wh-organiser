@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { admin, rules, home, missions } from "@/assets/navigation";
+import Menu from "./Menu";
 
 const Sidebar = ({
   isOpen,
@@ -33,18 +34,7 @@ const Sidebar = ({
         </button>
 
         <ul className="sidebar-nav text-center leading-relaxed text-xl w-full">
-          <li className="mb-4 w-full bg-background-lighter">
-            <Link href={home.url}>{home.title}</Link>
-          </li>
-          <li className="mb-4">
-            <Link href={admin.url}>{admin.title}</Link>
-          </li>
-          <li className="mb-4">
-            <Link href={rules.url}>{rules.title}</Link>
-          </li>
-          <li className="mb-4">
-            <Link href={missions.url}>{missions.title}</Link>
-          </li>
+         <Menu />
         </ul>
       </div>
     </>

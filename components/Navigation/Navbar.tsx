@@ -1,7 +1,5 @@
-import Link from "next/link";
-
-import { admin, rules, home, missions } from "@/assets/navigation";
 import Button from "../Button";
+import Menu from "./Menu";
 
 type Props = {
   toggle: () => void;
@@ -14,18 +12,7 @@ const Navbar = ({ toggle }: Props) => {
           <div className="flex justify-between items-center h-full">
             <h1>My organizer</h1>
             <ul className="hidden md:flex gap-x-6 text-white">
-              <li>
-                <Link href={home.url}>{home.title}</Link>
-              </li>
-              <li>
-                <Link href={admin.url}>{admin.title}</Link>
-              </li>
-              <li>
-                <Link href={rules.url}>{rules.title}</Link>
-              </li>
-              <li>
-                <Link href={missions.url}>{missions.title}</Link>
-              </li>
+              <Menu />
             </ul>
             <div className="md:hidden">
               <Button onClick={toggle}>
