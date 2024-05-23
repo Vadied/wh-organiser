@@ -30,4 +30,8 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .transition-max-height {
+    transition: max-height 0.5s ease-in-out;
+  }
 }
