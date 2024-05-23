@@ -1,5 +1,6 @@
-import { admin, rules, home, missions } from "@/assets/navigation";
 import Link from "next/link";
+
+import { admin, rules, home, missions } from "@/assets/navigation";
 import Button from "../Button";
 
 type Props = {

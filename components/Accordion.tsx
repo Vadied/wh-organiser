@@ -14,7 +14,7 @@ const Accordion = ({ items }: Props) => {
   };
 
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="">
       {items.map((item, index) => (
         <AccordionItem
           key={index}

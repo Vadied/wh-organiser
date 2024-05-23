@@ -9,10 +9,10 @@ const Navigation = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <>
+    <div className="mb-4">
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
-    </>
+    </div>
   );
 };
 

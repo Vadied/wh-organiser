@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { admin, rules, home, missions } from "@/assets/navigation";
 
 const Sidebar = ({
   isOpen,
@@ -10,10 +11,10 @@ const Sidebar = ({
   return (
     <>
       <div
-        className="sidebar-container fixed w-full h-full overflow-hidden justify-center bg-white grid pt-[120px] left-0 z-10"
+        className="sidebar-container bg-background-light fixed w-full h-full overflow-hidden justify-center grid pt-[120px] left-0 z-10 transition-all duration-500"
         style={{
           opacity: `${isOpen ? "1" : "0"}`,
-          top: ` ${isOpen ? "0" : "-100%"}`,
+          left: ` ${isOpen ? "0" : "-100%"}`,
         }}
       >
         <button className="absolute right-0 p-5" onClick={toggle}>
@@ -31,21 +32,18 @@ const Sidebar = ({
           </svg>
         </button>
 
-        <ul className="sidebar-nav text-center leading-relaxed text-xl">
-          <li>
-            <Link href="/about" onClick={toggle}>
-              <p>About Us</p>
-            </Link>
+        <ul className="sidebar-nav text-center leading-relaxed text-xl w-full">
+          <li className="mb-4 w-full bg-background-lighter">
+            <Link href={home.url}>{home.title}</Link>
           </li>
-          <li>
-            <Link href="/services" onClick={toggle}>
-              <p>Services</p>
-            </Link>
+          <li className="mb-4">
+            <Link href={admin.url}>{admin.title}</Link>
           </li>
-          <li>
-            <Link href="/contacts" onClick={toggle}>
-              <p>Contacts</p>
-            </Link>
+          <li className="mb-4">
+            <Link href={rules.url}>{rules.title}</Link>
+          </li>
+          <li className="mb-4">
+            <Link href={missions.url}>{missions.title}</Link>
           </li>
         </ul>
       </div>
