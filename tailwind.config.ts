@@ -44,6 +44,9 @@ export default {
         danger: {
           DEFAULT: "#ef4444", // red-500
         },
+        success: {
+          DEFAULT: "teal", // teal-500
+        },
         button: {
           primary: "#5d57c9", // violet-600
           danger: "#ef4444", // red-500

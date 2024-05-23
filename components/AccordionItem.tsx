@@ -5,11 +5,11 @@ const plusIcon = "+";
 
 type Props = {
   title: string;
-  content: React.ReactNode;
+  children: React.ReactNode;
   isOpen?: boolean;
   onClick?: () => void;
 };
-const AccordionItem = ({ title, content, isOpen, onClick }: Props) => {
+const AccordionItem = ({ title, children, isOpen, onClick }: Props) => {
   return (
     <div
       className="p-4 shadow-sm cursor-pointer bg-background mb-4 rounded"
@@ -20,11 +20,11 @@ const AccordionItem = ({ title, content, isOpen, onClick }: Props) => {
         <div className="flex-none">{isOpen ? minusIcon : plusIcon}</div>
       </div>
       <div
-        className={`rounded p-2 overflow-hidden transition-all duration-500 ease-in ${
+        className={`rounded overflow-auto transition-all duration-500 ease-in ${
           isOpen ? "max-h-80 p-2 mt-2" : "max-h-0 p-0 mt-0"
         } bg-background-lighter`}
       >
-        <p>{content}</p>
+        {children}
       </div>
     </div>
   );

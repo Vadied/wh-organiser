@@ -1,17 +1,17 @@
 import {
-    Deployment,
+  Deployment,
   Gambit,
   MissionRule,
   PrimaryMission,
   SecondaryMission,
 } from "@/types/missions";
 
-const primaryMissions: PrimaryMission[] = [
+export const primaryMissions: PrimaryMission[] = [
   {
     id: "1",
     name: "Take and Hold",
     set: "core",
-    battleRound: [
+    rounds: [
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 15VP per turn)",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 15VP per turn)",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 15VP per turn)",
@@ -24,7 +24,7 @@ const primaryMissions: PrimaryMission[] = [
     set: "core",
     special:
       "From the second battle round, in each player’s Shooting phase, the player whose turn it is can select one unit from their army that is not Battle-shocked and is eligible to shoot. Until the end of that turn, that unit is not eligible to shoot or declare a charge. At the start of its controlling player’s next Command phase, if that unit is within 1” of an objective marker that the player whose turn it is controls, that objective marker is burned and removed from the battlefield",
-    battleRound: [
+    rounds: [
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 15VP per turn)",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 15VP per turn)",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 15VP per turn)",
@@ -39,7 +39,7 @@ const primaryMissions: PrimaryMission[] = [
     set: "core",
     special:
       "At the end of the battle round, each player scores 4VP if one of more enemy units were destroyed that battle round, and an extra 4VP if more enemy units than friendly units were destroyed that battle round.\n\nNote that a unit can, if it is returned to the battlefield for any reason, potentially contribute to this Primary Mission several times (assuming it is returned and subsequently destroyed several times over)",
-    battleRound: [
+    rounds: [
       "At the end of each Command phase, the player whose turn it is scores 4VP if they control one or more objective markers, and an extra 4VP if they control more objective markers than their opponent controls.",
       "At the end of each Command phase, the player whose turn it is scores 4VP if they control one or more objective markers, and an extra 4VP if they control more objective markers than their opponent controls.",
       "At the end of each Command phase, the player whose turn it is scores 4VP if they control one or more objective markers, and an extra 4VP if they control more objective markers than their opponent controls.",
@@ -52,7 +52,7 @@ const primaryMissions: PrimaryMission[] = [
     set: "core",
     special:
       "The objective markers in No Man’s Land are sites of power. At the end of each command phase, the player whose turn it is empowers all sites of power that they control that have one or more Character models from their army within range; each site of power remains empowered by that player while one or more of their Character models remains within range of itFrom the second battle round, in each player’s Shooting phase, the player whose turn it is can select one unit from their army that is not Battle-shocked and is eligible to shoot. Until the end of that turn, that unit is not eligible to shoot or declare a charge. At the start of its controlling player’s next Command phase, if that unit is within 1” of an objective marker that the player whose turn it is controls, that objective marker is burned and removed from the battlefield",
-    battleRound: [
+    rounds: [
       "At the end of each player’s Command phase, the player whose turn it is scores VP as follows (up to 15VP pe\nNote that these are cumulative, so a player that controls one objective marker they have also empowered will score 6VP that turn",
       "At the end of each player’s Command phase, the player whose turn it is scores VP as follows (up to 15VP pe\nNote that these are cumulative, so a player that controls one objective marker they have also empowered will score 6VP that turn",
       "At the end of each player’s Command phase, the player whose turn it is scores VP as follows (up to 15VP pe\nNote that these are cumulative, so a player that controls one objective marker they have also empowered will score 6VP that turn",
@@ -65,7 +65,7 @@ const primaryMissions: PrimaryMission[] = [
     set: "core",
     special:
       "When setting up the battlefield, remove all objective markers in No Man’s Land except the one closest to the centre of the battlefield.\n\nIn each player’s Shooting phase, the player whose turn it is can select one unit from their army that is not Battle-shocked and is eligible to shoot. Until the end of that turn, that unit is not eligible to shoot or declare a charge. At the end of that turn, the player whose turn it is can set up one objective marker wholly within No Man’s Land and within 1” of that unit provided it can be set up exactly 9” from one other objective marker and not within 6” of any other objective marker.",
-    battleRound: [
+    rounds: [
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker in No Man’s Land they control (up to 15VP per turn).",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker in No Man’s Land they control (up to 15VP per turn).",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker in No Man’s Land they control (up to 15VP per turn).",
@@ -76,7 +76,7 @@ const primaryMissions: PrimaryMission[] = [
     id: "6",
     name: "Priority Targets",
     set: "core",
-    battleRound: [
+    rounds: [
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 10VP per turn)",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 10VP per turn)",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control (up to 10VP per turn)",
@@ -91,7 +91,7 @@ const primaryMissions: PrimaryMission[] = [
     set: "core",
     special:
       "The objective markers that start the battle in No Man’s Land are servo-skulls. At the end of each turn, each of these objective markers can be moved up to 6” in any direction by the player that controls it. When moving objective markers, they cannot end that move on top of any other objective marker or model, or inside impassable parts of terrain features (such as the walls of a ruin).",
-    battleRound: [
+    rounds: [
       "At the end of each turn, the player whose turn it is scores VP as follows:\n\n2VP for each servo-skull that is wholly within 12” of their opponent’s deployment zone.\n5VP for each servo-skull that is wholly within 6” of their opponent’s deployment zone.\n8VP for each servo-skull that is wholly within their opponent’s deployment zone.\n\nNote that these are cumulative, so if a servo-skull is wholly within your opponent’s deployment zone, you would score 15VP from that servo-skull at the end of your turn.",
       "At the end of each turn, the player whose turn it is scores VP as follows:\n\n2VP for each servo-skull that is wholly within 12” of their opponent’s deployment zone.\n5VP for each servo-skull that is wholly within 6” of their opponent’s deployment zone.\n8VP for each servo-skull that is wholly within their opponent’s deployment zone.\n\nNote that these are cumulative, so if a servo-skull is wholly within your opponent’s deployment zone, you would score 15VP from that servo-skull at the end of your turn.",
       "At the end of each turn, the player whose turn it is scores VP as follows:\n\n2VP for each servo-skull that is wholly within 12” of their opponent’s deployment zone.\n5VP for each servo-skull that is wholly within 6” of their opponent’s deployment zone.\n8VP for each servo-skull that is wholly within their opponent’s deployment zone.\n\nNote that these are cumulative, so if a servo-skull is wholly within your opponent’s deployment zone, you would score 15VP from that servo-skull at the end of your turn.",
@@ -103,7 +103,7 @@ const primaryMissions: PrimaryMission[] = [
     set: "core",
     special:
       "If you draw this and the Hidden Supplies Mission Rule Card, discard this card and draw a new Primary Mission card.\n\nAfter setting up the battlefield, remove the objective marker in No Man’s Land that is closest to the centre of the battlefield.",
-    battleRound: [
+    rounds: [
       "At the end of each Command phase, the player whose turn it is scores VP as follows:\n\nIf they control the objective marker in their own deployment zone, they score 2VP.\nFor each objective marker in No Man’s Land they control, they score 5VP.\nIf they control the objective marker in their opponent’s deployment zone, they score 6VP.",
       "At the end of each Command phase, the player whose turn it is scores VP as follows:\n\nIf they control the objective marker in their own deployment zone, they score 2VP.\nFor each objective marker in No Man’s Land they control, they score 5VP.\nIf they control the objective marker in their opponent’s deployment zone, they score 6VP.",
       "At the end of each Command phase, the player whose turn it is scores VP as follows:\n\nIf they control the objective marker in their own deployment zone, they score 2VP.\nFor each objective marker in No Man’s Land they control, they score 5VP.\nIf they control the objective marker in their opponent’s deployment zone, they score 6VP.",
@@ -116,7 +116,7 @@ const primaryMissions: PrimaryMission[] = [
     set: "core",
     special:
       "At the start of the battle, players randomly select two different objective markers in No Man’s Land: the first selected is the Alpha objective, the second is the Omega objective. At the start of the fourth battle round, the Alpha objective is removed from the battlefield. At the start of the fifth battle round, all objective markers in No Man’s Land apart from the Omega objective are also removed.",
-    battleRound: [
+    rounds: [
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control in No Man’s Land.",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control in No Man’s Land.",
       "At the end of each Command phase, the player whose turn it is scores 5VP for each objective marker they control in No Man’s Land.",
@@ -125,7 +125,7 @@ const primaryMissions: PrimaryMission[] = [
   },
 ];
 
-const missionRules: MissionRule[] = [
+export const missionRules: MissionRule[] = [
   {
     id: "1",
     name: "Hidden Supplies",
@@ -200,122 +200,138 @@ const missionRules: MissionRule[] = [
   },
 ];
 
-const secondaryMissions: SecondaryMission[] = [
+export const secondaryMissions: SecondaryMission[] = [
   {
     id: "1",
     name: "Behind Enemy Lines",
     set: "core",
-    type: "fixed",
+    isFixed: true,
+    player: "attacker",
     rule: "At the end of your turn, if two or more units from your army (excluding Aircraft) are wholly within your opponent’s deployment zone, this Secondary Mission is achieved and you score 4VP\n\nIf, at the end of your turn, only one unit from your army (excluding Aircraft) is wholly within your opponent’s deployment zone, this Secondary Mission is still achieved, but in this instance you score 2VP instead of 4VP.\n\nIf you are using Tactical Missions, then when this Secondary Mission is achieved you score an extra 1VP (for a maximum of 5VP).",
   },
   {
     id: "2",
     name: "Assassination",
     set: "core",
-    type: "fixed",
+    isFixed: true,
+    player: "attacker",
     rule: "If you are using Fixed Missions, then while this Secondary Mission is active, each time an enemy Character model is destroyed, you score 4VP.\n\nIf you are using Tactical Missions, then at the end of the turn, if either of the conditions below are satisfied, this Secondary Mission is achieved and you score 5VP:\n\nOne or more enemy Character units were destroyed this turn.\nAll Character units from your opponent’s Army Roster have been destroyed during the battle.\n\nNote that if you are using Tactical Missions, this Secondary Mission is achieved even if such a unit was destroyed and then subsequently resurrected for any reason.",
   },
   {
     id: "3",
     name: "Bring it Down",
     set: "core",
-    type: "fixed",
+    isFixed: true,
+    player: "attacker",
     rule: "While this Secondary Mission is active, each time an enemy Monster or Vehicle model is destroyed, you score 2VP and an extra 1VP for each of the conditions below that are satisfied (all are cumulative):\n\nThe destroyed model had a Wounds characteristic of 10+\nThe destroyed model had a Wounds characteristic of 15+\nThe destroyed model had a Wounds characteristic of 20+\nNote that VP are scored even if such a model is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.\n\nIf you are using Tactical Missions, then when this Secondary Mission is achieved you score an extra 1VP. However, if you are using Tactical Missions, you cannot score more than 8VP in total from this Secondary Mission.",
   },
   {
     id: "4",
     name: "Storm Hostile Objective",
     set: "core",
-    type: "fixed",
+    isFixed: true,
+    player: "attacker",
     rule: "At the end of your turn, if either of the below conditions are satisfied, this Secondary Mission is achieved and you score 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions:\n\nYou control one or more objective markers that were controlled by your opponent at the start of your turn.\nYour opponent did not control any objective markers at the start of your turn and you control one or more objective markers that you did not control at the start of your turn.\nThis Secondary Mission cannot be achieved during the first battle round; if you randomly drew this Secondary Mission card during the first battle round, draw a new Secondary Mission card and shuffle this Secondary Mission card back into your Secondary Mission deck.",
   },
   {
     id: "5",
     name: "Engage on All Fronts",
     set: "core",
-    type: "fixed",
+    isFixed: true,
+    player: "attacker",
     rule: "At the end of your turn, if you have one or more qualifying units (see below) from your army wholly within three or more different table quarters, and those units are all more than 3” away from any other table quarter, this Secondary Mission is achieved and you score 4VP if you have qualifying units in four different table quarters, or 2VP if you have qualifying units in three different table quarters.\nWhile a unit is Battle-shocked, it is not a qualifying unit.\n\nIf, when you draw this Secondary Mission card, you only have one or two qualifying units remaining in your army, you can discard this Secondary Mission card and draw a new Secondary Mission card.\n\nIf you are using tactical Missions, then when this Secondary Mission is achieved you score an extra 1VP (for a maximum of 5VP).",
   },
   {
     id: "6",
     name: "Cleanse",
     set: "core",
-    type: "fixed",
+    isFixed: true,
+    player: "attacker",
     rule: "In your Shooting phase, you can select one or more units from your army that are not Battle-shocked and are eligible to shoot. Until the end of your turn, the units you selected are not eligible to shoot or declare a charge.\nAt the end of your turn, each objective marker that is not within your deployment zone that you control that has one or more of these selected units within range is cleansed by your army.\nIf one or more objective markers are cleansed by your army this turn, this Secondary Mission is achieved and you score a number of VP depending on the number of objective markers cleansed by your army this turn, as follows:\n1 objective marker cleansed = 2VP if you are using Fixed Missions, or 3VP if you are using Tactical Missions.\n2 or more objective markers cleansed = 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions.",
   },
   {
     id: "7",
     name: "Deploy Teleport Homers",
     set: "core",
-    type: "fixed",
+    isFixed: true,
+    player: "attacker",
     rule: "In your shooting phase, you can select one unit from your army that is not Battle-shocked and is eligible to shoot. Until the end of your turn, that unit is not eligible to shoot or declare a charge.\n\nAt the end of your turn, if that unit is within your opponents deployment zone, or within 6” of the centre of the battlefield, it deploys a teleport homer at that locations, this Secondary Mission is achieved and you score a number of VP depending on where the teleport homer was deployed, as follows:\n\nCentre of battlefield = 2VP if you are using Fixed Missions, or 3VP if you are using Tactical Missions\nOpponent’s deployment zone = 4VP if you are using Fixed Missions, or 5VP if you are using Tactical Missions",
   },
   {
     id: "8",
     set: "core",
-    type: "tactical",
+    isFixed: false,
     name: "Investigate Signals",
+    player: "attacker",
     rule: "In your Shooting phase, you can select one or more units from your army that are not Battle-shocked and are eligible to shoot. Until the end of your turn, the units you selected are not eligible to shoot or declare a charge.\n\nAt the end of your turn, each corner of the battlefield that has one or more of these selected units wholly within 9” of it is scanned by your army.\n\nIf one or more corners are scanned by your army, this Secondary Mission is achieved and you score 2VP for each corner scanned by your army this turn.",
   },
   {
     id: "9",
     set: "core",
-    type: "tactical",
+    isFixed: false,
     name: "No Prisoners",
+    player: "attacker",
     rule: "While this Secondary Mission is active, each time an enemy unit is destroyed, you score 2VP (to a maximum of 5VP).\n\nNote that VP are scored even if such a unit is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.",
   },
   {
     id: "10",
     set: "core",
-    type: "tactical",
+    isFixed: false,
     name: "Extend Battle Lines",
+    player: "attacker",
     rule: "At the end of your turn, if you control one or more objective markers in your own deployment zone and you also control one or more objective markers in No Man’s Land, this Secondary Mission is achieved and you score 5VP.\n\nIf you only have one unit remaining in your army, then this Secondary Mission is instead achieved at the end of your turn if that unit controls one objective marker in No Man’s Land, but in this instance you score 2VP instead of 5VP.",
   },
   {
     id: "11",
     set: "core",
-    type: "tactical",
+    isFixed: false,
     name: "Defend Stronghold",
+    player: "attacker",
     rule: "At the end of your opponent’s turn, or at the end of the battle (whichever comes first), if you control one or more objective markers in your own deployment zone, this Secondary Mission is achieved and you score 3VP.\n\nThis Secondary Mission cannot be achieved during the first battle round; if you draw this Secondary Mission card during the first battle round, draw a new Secondary Mission card and shuffle this Secondary Mission card back into your Secondary Mission deck.",
   },
   {
     id: "12",
     set: "core",
-    type: "tactical",
+    isFixed: false,
+    player: "attacker",
     name: "Overwhelming Force",
     rule: "While this Secondary Mission is active, each time an enemy unit that started the turn within range of an objective marker is destroyed, you score 3VP (to a maximum of 5VP).\n\nNote that VP are scored even if such a unit is destroyed and then subsequently resurrected for any reason. If you score any VP from this Secondary Mission during a turn, then at the end of that turn this Secondary Mission is achieved.",
   },
   {
     id: "13",
     set: "core",
-    type: "tactical",
+    isFixed: false,
+    player: "attacker",
     name: "Secure No Man’s Land",
     rule: "At the end of your turn, if you control two or more objective markers in No Man’s Land, this Secondary Mission is achieved and you score 5VP.\n\nIf, at the end of your turn, you only control one objective marker in No Man’s Land, this Secondary Mission is still achieved, but in this instance you score 2VP instead of 5VP.",
   },
   {
     id: "14",
     set: "core",
-    type: "tactical",
+    isFixed: false,
     name: "Area Denial",
+    player: "attacker",
     rule: "At the end of your turn, if one or more units from your army (excluding Battle-shocked units) are wholly within 6” of the centre of the battlefield, and there are no enemy units wholly within 6” of the centre of the battlefield, this Secondary Mission is achieved and you score 5VP.\n\nIf, at the end of your turn, there are one or more enemy units wholly within 6” of the centre of the battlefield, but there are no enemy units within 3” of the centre of the battlefield, then this Secondary Mission is still achieved, but in this instance you score 3VP instead of 5VP.",
   },
   {
     id: "15",
     set: "core",
-    type: "tactical",
+    isFixed: false,
     name: "A Tempting Target",
+    player: "attacker",
     rule: "When this Secondary Mission card is drawn, your opponent must select one objective marker in No Man’s Land.\n\nAt the end of your turn, if you control that selected objective marker, this Secondary Mission is achieved and you score 5VP.",
   },
   {
     id: "16",
     set: "core",
-    type: "tactical",
+    isFixed: false,
     name: "Capture Enemy Outpost",
+    player: "attacker",
     rule: "At the end of your turn, if you control one or more objective markers in your opponent’s deployment zone, this Secondary Mission is achieved and you score 8VP.",
   },
 ];
 
-const gambits: Gambit[] = [
+export const gambits: Gambit[] = [
   {
     id: "1",
     set: "core",
@@ -342,7 +358,7 @@ const gambits: Gambit[] = [
   },
 ];
 
-const deployments: Deployment[] = [
+export const deployments: Deployment[] = [
   {
     id: "1",
     field: "field_01",
@@ -364,12 +380,3 @@ const deployments: Deployment[] = [
     field: "field_05",
   },
 ];
-
-const missionData = {
-  primaryMissions,
-  missionRules,
-  secondaryMissions,
-  gambits,
-  deployments,
-};
-export default missionData;

@@ -1,13 +1,11 @@
 "use client";
 
-import { ReactNode, useState } from "react";
-import AccordionItem from "./AccordionItem";
+import { primaryMissions } from "@/assets/mocks/missions";
+import MissionCard from "./MissionCard";
+import AccordionItem from "../AccordionItem";
+import { useState } from "react";
 
-type Props = {
-  title?: string;
-  items: { title: string; content: ReactNode }[];
-};
-const Accordion = ({ items, title = "" }: Props) => {
+const PrimaryMissions = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleClick = (index: number) => {
@@ -16,19 +14,18 @@ const Accordion = ({ items, title = "" }: Props) => {
 
   return (
     <>
-      <h2>{title}</h2>
-      {items.map((item, index) => (
+      {primaryMissions.map((mission, index) => (
         <AccordionItem
           key={index}
-          title={item.title}
+          title={mission.name}
           isOpen={openIndex === index}
           onClick={() => handleClick(index)}
         >
-          {item.content}
+          <MissionCard {...mission} />
         </AccordionItem>
       ))}
     </>
   );
 };
 
-export default Accordion;
+export default PrimaryMissions;
