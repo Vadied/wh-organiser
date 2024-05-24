@@ -1,36 +1,84 @@
-import Link from "next/link";
-import { admin, missions, rules } from "@/assets/navigation";
+import {
+  deployments,
+  gambits,
+  primaryMissions,
+  secondaryMissions,
+} from "@/assets/mocks/missions";
+import AccordionItem from "@/components/AccordionItem";
+import GenerateGame from "@/components/GenerateGame";
+import MissionCard from "@/components/PrimaryMissions/MissionCard";
+import Image from "next/image";
 
-export default async function IndexPage() {
+type Props = {
+  searchParams?: {
+    [key: string]: string;
+  };
+};
+export default async function IndexPage({ searchParams }: Props) {
+  const { dp = "", sm = "", pm = "", gm = "", fixed } = searchParams || {};
+
+  const deployment = deployments.find((d) => d.id === dp);
+  const primary = primaryMissions.find((m) => m.id === pm);
+  const secondaries = secondaryMissions.filter((m) =>
+    sm.split("-").includes(m.id)
+  );
+  const gambit = gambits.find((g) => g.id === gm);
+
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
-      <h1 className="text-3xl mb-2">Benvenuti nel war-organizer!</h1>
-      <p className="mb-6">
-        Tutto quello che ti serve per gestire la tua partita:
-      </p>
-      <ul className="flex flex-wrap gap-4">
-        <li>
-          <Link href={admin.url}>
-            <button className="px-2 py-1 rounded text-text border-none bg-button-primary">
-              {admin.title}
-            </button>
-          </Link>
-        </li>
-        <li>
-          <Link href={rules.url}>
-            <button className="px-2 py-1 rounded text-text border-none bg-button-primary">
-              {rules.title}
-            </button>
-          </Link>
-        </li>
-        <li>
-          <Link href={missions.url}>
-            <button className="px-2 py-1 rounded text-text border-none bg-button-primary">
-              {missions.title}
-            </button>
-          </Link>
-        </li>
-      </ul>
+      <div className="flex flex-col gap-4">
+        <div className="flex justify-between">
+          <GenerateGame />
+        </div>
+
+        <AccordionItem title="Punti">
+          
+        </AccordionItem>
+
+
+
+        <AccordionItem title="Schieramento">
+          {!deployment && <p>Seleziona uno schieramento</p>}
+          {deployment && (
+            <Image
+              alt={`campo di battaglia ${deployment.field}`}
+              src={`/img/fields/${deployment.field}`}
+              width={400}
+              height={400}
+            />
+          )}
+        </AccordionItem>
+
+        <AccordionItem title="Missione primaria">
+          {!primary && <p>Seleziona una missione primaria</p>}
+          {primary && (
+            <AccordionItem classes="mb-2" title={primary.name}>
+              <MissionCard {...primary} />
+            </AccordionItem>
+          )}
+        </AccordionItem>
+
+        <AccordionItem title="Missioni secondarie">
+          {!secondaries.length && (
+            <p>Seleziona almeno una missione secondaria</p>
+          )}
+          {secondaries.map(({ id, name, rule }) => (
+            <AccordionItem classes="mb-2" key={id} title={name}>
+              {rule}
+            </AccordionItem>
+          ))}
+        </AccordionItem>
+
+        <AccordionItem title="Gambit">
+          {!gambit && <p>Genera un gambit</p>}
+          {gambit && (
+            <>
+              <h2>{gambit.name}</h2>
+              <p>{gambit.rule}</p>
+            </>
+          )}
+        </AccordionItem>
+      </div>
     </main>
   );
 }

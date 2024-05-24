@@ -32,5 +32,6 @@ export type SecondaryMission = {
 
 export type Deployment = {
   id: string;
+  name: string;
   field: string;
 };

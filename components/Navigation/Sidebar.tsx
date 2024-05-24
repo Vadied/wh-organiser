@@ -31,7 +31,7 @@ const Sidebar = ({
           </svg>
         </button>
 
-        <ul className="sidebar-nav text-center leading-relaxed text-xl w-full">
+        <ul className="sidebar-nav leading-relaxed text-xl w-full">
          <Menu />
         </ul>
       </div>

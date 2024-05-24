@@ -25,9 +25,10 @@ const Button = ({
   classes = "",
 }: Props) => {
   const handleClick = (e: any) => {
+    if (disabled || !onClick) return;
+    
     e.preventDefault();
     e.stopPropagation();
-    if (disabled || !onClick) return;
     onClick(e);
   };
 

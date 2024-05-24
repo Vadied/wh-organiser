@@ -26,32 +26,8 @@ export const missions: NavigationItem = {
       url: "/missions/secondary",
     },
     {
-      title: "Schieramenti",
-      url: "/missions/deployments",
-    },
-    {
       title: "Gambit",
       url: "/missions/gambit",
-    },
-  ]
-};
-
-export const generation: NavigationItem = {
-  title: "Generazione casuale",
-  url: "/generation",
-  icon: "information-circle",
-  children: [
-    {
-      title: "Partita",
-      url: "/generation/game",
-    },
-    {
-      title: "Missioni secondarie",
-      url: "/generation/secondary",
-    },
-    {
-      title: "Gambit",
-      url: "/generation/gambit",
     },
   ]
 };
@@ -63,9 +39,9 @@ export const admin: NavigationItem = {
 };
 
 export const deploy: NavigationItem = {
-  title: "Admin",
+  title: "Schieramenti",
   url: "/deployments",
   icon: "information-circle",
 };
 
-export const menuItems = [home, rules, missions, generation, admin];
+export const menuItems = [home, rules, deploy, missions];

@@ -361,22 +361,27 @@ export const gambits: Gambit[] = [
 export const deployments: Deployment[] = [
   {
     id: "1",
+    name: "Search and Destroy",
     field: "field_01.png",
   },
   {
     id: "2",
+    name: "Dawn of War",
     field: "field_02.png",
   },
   {
     id: "3",
+    name: "Sweeping Engagement",
     field: "field_03.png",
   },
   {
     id: "4",
+    name: "Crucible of Battle",
     field: "field_04.png",
   },
   {
     id: "5",
+    name: "Hammer and Anvil",
     field: "field_05.png",
   },
 ];
