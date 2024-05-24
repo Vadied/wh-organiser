@@ -1,5 +1,5 @@
 import rules from "@/assets/mocks/rules";
-import Accordion from "@/components/Accordion";
+import AccordionItem from "@/components/AccordionItem";
 
 const Page = () => {
   return (
@@ -11,7 +11,11 @@ const Page = () => {
         Force battle sizes.
       </p>
 
-      <Accordion items={rules} />
+      {rules.map(({ title, content }) => (
+        <AccordionItem classes="mb-2" key={title} title={title}>
+          {content}
+        </AccordionItem>
+      ))}
     </>
   );
 };
