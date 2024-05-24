@@ -1,18 +1,35 @@
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+
+import { menuItems } from "@/assets/navigation";
 import Button from "../Button";
-import Menu from "./Menu";
 
 type Props = {
   toggle: () => void;
 };
 const Navbar = ({ toggle }: Props) => {
+  const searchParams = useSearchParams();
+  const params = searchParams.toString();
   return (
     <>
       <div className="w-full h-20 bg-background sticky top-0">
         <div className="container mx-auto px-4 h-full">
           <div className="flex justify-between items-center h-full">
-            <h1>My organizer</h1>
-            <ul className="hidden md:flex gap-x-6 text-white">
-              <Menu />
+            <h1>WH40K Battle</h1>
+            <ul className="hidden md:flex items-center gap-x-6 text-white">
+              {menuItems.map(({ url, title, children }) => (
+                <>
+                  <li key={title}>
+                    <Link href={`${url}?${params}`}>{title}</Link>
+                  </li>
+                  {children?.length &&
+                    children.map(({ url, title }) => (
+                      <li key={title}>
+                        <Link href={`${url}?${params}`}>{title}</Link>
+                      </li>
+                    ))}
+                </>
+              ))}
             </ul>
             <div className="md:hidden">
               <Button onClick={toggle}>

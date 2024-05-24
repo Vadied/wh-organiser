@@ -1,4 +1,7 @@
-import Menu from "./Menu";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+
+import { menuItems } from "@/assets/navigation";
 
 const Sidebar = ({
   isOpen,
@@ -7,6 +10,9 @@ const Sidebar = ({
   isOpen: boolean;
   toggle: () => void;
 }): JSX.Element => {
+  const searchParams = useSearchParams();
+  const params = searchParams.toString();
+
   return (
     <>
       <div
@@ -32,7 +38,20 @@ const Sidebar = ({
         </button>
 
         <ul className="sidebar-nav leading-relaxed text-xl w-full">
-         <Menu />
+          {menuItems.map(({ url, title, children }) => (
+            <li className="text-3xl mb-4" key={title}>
+              <Link href={`${url}?${params}`}>{title}</Link>
+              {children?.length && (
+                <ul className="pl-4">
+                  {children.map(({ url, title }) => (
+                    <li className="text-2xl m-2" key={title}>
+                      <Link href={`${url}?${params}`}>{title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
         </ul>
       </div>
     </>
