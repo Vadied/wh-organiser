@@ -5,6 +5,7 @@ import {
   secondaryMissions,
 } from "@/assets/mocks/missions";
 import AccordionItem from "@/components/AccordionItem";
+import Counter from "@/components/Counter";
 import GenerateGame from "@/components/GenerateGame";
 import MissionCard from "@/components/PrimaryMissions/MissionCard";
 import Image from "next/image";
@@ -31,11 +32,15 @@ export default async function IndexPage({ searchParams }: Props) {
           <GenerateGame />
         </div>
 
-        <AccordionItem title="Punti">
-          
+        <AccordionItem title="Giocatore 1">
+            <Counter classes="mb-4" name="Vittoria" value={0} />
+            <Counter name="Comando" value={0} />
         </AccordionItem>
 
-
+        <AccordionItem title="Giocatore 2">
+            <Counter classes="mb-4" name="Vittoria" value={0} />
+            <Counter name="Comando" value={0} />
+        </AccordionItem>
 
         <AccordionItem title="Schieramento">
           {!deployment && <p>Seleziona uno schieramento</p>}
