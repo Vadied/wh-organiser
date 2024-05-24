@@ -1,22 +1,38 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 import Button from "./Button";
 
 type Props = {
   name: string;
-  value?: number;
+  search: string;
   classes?: string;
 };
-const Counter = ({ name, value = 0, classes = "" }: Props) => {
-  const [count, setCount] = useState(value);
+const Counter = ({ name, search, classes = "" }: Props) => {
+  const searchParams = useSearchParams();
+  const { replace } = useRouter();
+  const pathname = usePathname();
+
+  const [count, setCount] = useState(Number(searchParams.get(search)) || 0);
+
+  const handleCount = (value: number) => () => {
+    const newCount = count + value;
+    setCount(newCount);
+
+    const params = new URLSearchParams(searchParams);
+    params.set(search, newCount.toString());
+    replace(`${pathname}?${params}`);
+  };
+
   return (
     <div className={`${classes}`}>
       <div className="text-center mb-4">{name}</div>
       <div className="flex items-center justify-center gap-2">
-        <Button onClick={() => setCount(count - 1)}>-</Button>
+        <Button onClick={handleCount(-1)}>-</Button>
         <div className="w-8 flex items-center justify-center">{count}</div>
-        <Button onClick={() => setCount(count + 1)}>+</Button>
+        <Button onClick={handleCount(1)}>+</Button>
       </div>
     </div>
   );
