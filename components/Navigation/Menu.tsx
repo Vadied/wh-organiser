@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { admin, rules, home, missions } from "@/assets/navigation";
+import { admin, rules, home, missions, generation } from "@/assets/navigation";
 const Menu = () => {
   return (
     <>
@@ -15,6 +15,9 @@ const Menu = () => {
       </li>
       <li>
         <Link href={missions.url}>{missions.title}</Link>
+      </li>
+      <li>
+        <Link href={generation.url}>{generation.title}</Link>
       </li>
     </>
   );

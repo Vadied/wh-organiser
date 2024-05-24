@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { admin, rules, home, missions } from "@/assets/navigation";
 import Menu from "./Menu";
 
 const Sidebar = ({
@@ -12,7 +10,7 @@ const Sidebar = ({
   return (
     <>
       <div
-        className="sidebar-container bg-background-light fixed w-full h-full overflow-hidden justify-center grid pt-[120px] left-0 z-10 transition-all duration-500"
+        className="sidebar-container bg-background-light fixed w-2/4 h-full overflow-hidden justify-center grid pt-[120px] z-10 transition-all duration-500 top-0"
         style={{
           opacity: `${isOpen ? "1" : "0"}`,
           left: ` ${isOpen ? "0" : "-100%"}`,

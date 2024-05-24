@@ -361,22 +361,22 @@ export const gambits: Gambit[] = [
 export const deployments: Deployment[] = [
   {
     id: "1",
-    field: "field_01",
+    field: "field_01.png",
   },
   {
     id: "2",
-    field: "field_02",
+    field: "field_02.png",
   },
   {
     id: "3",
-    field: "field_03",
+    field: "field_03.png",
   },
   {
     id: "4",
-    field: "field_04",
+    field: "field_04.png",
   },
   {
     id: "5",
-    field: "field_05",
+    field: "field_05.png",
   },
 ];

@@ -5,6 +5,8 @@ const getColor = (color: string) => {
 
   if (color == "success") return "bg-teal-500 text-white";
 
+  if (color == "secondary") return "bg-background-lighter text-white";
+
   return "bg-background-light text-white";
 };
 

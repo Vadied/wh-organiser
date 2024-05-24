@@ -1,18 +1,16 @@
-import { primaryMissions } from "@/assets/mocks/missions";
+import { gambits } from "@/assets/mocks/missions";
 import Accordion from "@/components/Accordion";
-import PrimaryMissions from "@/components/PrimaryMissions";
 
 const Page = () => {
-  const items = primaryMissions.map((mission) => ({
-    title: mission.name,
-    content: mission.rounds,
+  const items = gambits.map(({ name, rule }) => ({
+    title: name,
+    content: rule,
   }));
-
   return (
-    <div className="">
-       <PrimaryMissions />
-        
-    </div>
+    <>
+      <h1 className="text-3xl mb-4">Gambit</h1>
+      <Accordion items={items} />
+    </>
   );
 };
 
