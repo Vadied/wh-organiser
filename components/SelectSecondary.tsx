@@ -1,10 +1,12 @@
 "use client";
 
-import { secondaryMissions } from "@/assets/mocks/missions";
-import AccordionItem from "./AccordionItem";
 import { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
+import { secondaryMissions } from "@/assets/mocks/missions";
 import { secondary } from "@/assets/params";
+
+import AccordionItem from "./AccordionItem";
 import Button from "./Button";
 
 const SelectSecondary = () => {

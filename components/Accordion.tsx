@@ -23,7 +23,7 @@ const Accordion = ({ items, title = "" }: Props) => {
           classes="mb-2"
           title={title}
           isOpen={openIndex === index}
-          onClick={handleClick(index)}
+          onToggle={handleClick(index)}
         >
           {content}
         </AccordionItem>
