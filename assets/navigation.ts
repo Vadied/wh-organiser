@@ -67,3 +67,5 @@ export const deploy: NavigationItem = {
   url: "/deployments",
   icon: "information-circle",
 };
+
+export const menuItems = [home, rules, missions, generation, admin];

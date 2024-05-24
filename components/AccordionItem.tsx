@@ -5,12 +5,19 @@ type Props = {
   title: string;
   children: React.ReactNode;
   isOpen?: boolean;
+  classes?: string;
   onClick?: () => void;
 };
-const AccordionItem = ({ title, children, isOpen, onClick }: Props) => {
+const AccordionItem = ({
+  classes = "",
+  title,
+  children,
+  isOpen,
+  onClick,
+}: Props) => {
   return (
     <div
-      className="p-4 shadow-sm cursor-pointer bg-background mb-4 rounded"
+      className={`p-4 shadow-sm cursor-pointer bg-background rounded ${classes}`}
       onClick={onClick}
     >
       <div className="text-left items-center select-none flex justify-between flex-row">

@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Button from "./Button";
 import { secondaryMissions } from "@/assets/mocks/missions";
 import { useState } from "react";
-import { generateTwoDifferentIds } from "@/js/utils";
+import { generateRandomIds } from "@/js/utils";
 
 const GenerateSecondary = () => {
   const searchParams = useSearchParams();
@@ -17,9 +17,9 @@ const GenerateSecondary = () => {
   const generate = () => {
     const params = new URLSearchParams(searchParams);
     const filtered = secondaryMissions.filter((m) => !isFixed || m.isFixed);
-    const [id1, id2] = generateTwoDifferentIds(filtered);
+    const [id1, id2] = generateRandomIds(filtered, 2);
 
-    params.set("missions", `${id1}-${id2}`);
+    params.set("sm", `${id1}-${id2}`);
 
     replace(`${pathname}?${params}`);
   };

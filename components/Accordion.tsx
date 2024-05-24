@@ -20,6 +20,7 @@ const Accordion = ({ items, title = "" }: Props) => {
       {items.map((item, index) => (
         <AccordionItem
           key={index}
+          classes="mb-2"
           title={item.title}
           isOpen={openIndex === index}
           onClick={() => handleClick(index)}

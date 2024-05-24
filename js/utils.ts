@@ -1,14 +1,27 @@
-import { SecondaryMission } from "@/types/missions";
+export const generateRandomNumbers = (
+  range: number,
+  n: number,
+  randoms: number[] = []
+): number[] => {
+  if (range < n) return [];
 
-export const generateTwoDifferentIds = (
-  data: SecondaryMission[]
-): [string, string] => {
-  const range = data.length;
-  if (range < 2) return ["1", "1"];
+  const newId = Math.floor(Math.random() * range);
+  if (randoms.includes(newId)) return generateRandomNumbers(range, n, randoms);
+  randoms.push(newId);
 
-  const random1 = Math.floor(Math.random() * range);
-  const random2 = Math.floor(Math.random() * range);
-  if (random1 === random2) return generateTwoDifferentIds(data);
+  if (randoms.length < n) return generateRandomNumbers(range, n, randoms);
 
-  return [data[random1].id, data[random2].id];
+  return randoms;
 };
+
+export const generateRandomIds = (data: { id: string }[], n: number) => {
+  const indexes = generateRandomNumbers(data.length, n);
+  return indexes.map((index) => data[index].id);
+};
+
+export const parseParamsObjectToString = (
+  obj: Record<string, string>
+): string =>
+  Object.entries(obj)
+    .map(([key, value]) => `${key}=${value}`)
+    .join("&");

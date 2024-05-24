@@ -1,24 +1,21 @@
 import Link from "next/link";
 
-import { admin, rules, home, missions, generation } from "@/assets/navigation";
+import { menuItems } from "@/assets/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 const Menu = () => {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const params = searchParams.toString();
+  console.log("params", params);
+  console.log(pathname);
+
   return (
     <>
-      <li>
-        <Link href={home.url}>{home.title}</Link>
-      </li>
-      <li>
-        <Link href={admin.url}>{admin.title}</Link>
-      </li>
-      <li>
-        <Link href={rules.url}>{rules.title}</Link>
-      </li>
-      <li>
-        <Link href={missions.url}>{missions.title}</Link>
-      </li>
-      <li>
-        <Link href={generation.url}>{generation.title}</Link>
-      </li>
+      {menuItems.map(({ url, title }) => (
+        <li key={title}>
+          <Link href={`${url}?${params}`}>{title}</Link>
+        </li>
+      ))}
     </>
   );
 };
