@@ -1,13 +1,14 @@
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 import { menuItems } from "@/assets/navigation";
-import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 const Menu = () => {
   const searchParams = useSearchParams();
   const params = searchParams.toString();
 
   return (
-    <>
+    <Suspense>
       {menuItems.map(({ url, title, children }) => (
         <li className="text-3xl mb-4" key={title}>
           <Link href={`${url}?${params}`}>{title}</Link>
@@ -22,7 +23,7 @@ const Menu = () => {
           )}
         </li>
       ))}
-    </>
+    </Suspense>
   );
 };
 

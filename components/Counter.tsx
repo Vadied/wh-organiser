@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import Button from "./Button";
@@ -27,14 +27,16 @@ const Counter = ({ name, search, classes = "" }: Props) => {
   };
 
   return (
-    <div className={`${classes}`}>
-      <div className="text-center mb-4">{name}</div>
-      <div className="flex items-center justify-center gap-2">
-        <Button onClick={handleCount(-1)}>-</Button>
-        <div className="w-8 flex items-center justify-center">{count}</div>
-        <Button onClick={handleCount(1)}>+</Button>
+    <Suspense>
+      <div className={`${classes}`}>
+        <div className="text-center mb-4">{name}</div>
+        <div className="flex items-center justify-center gap-2">
+          <Button onClick={handleCount(-1)}>-</Button>
+          <div className="w-8 flex items-center justify-center">{count}</div>
+          <Button onClick={handleCount(1)}>+</Button>
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 

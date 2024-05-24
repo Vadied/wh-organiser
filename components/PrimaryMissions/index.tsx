@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { primaryMissions } from "@/assets/mocks/missions";
@@ -26,14 +26,14 @@ const PrimaryMissions = () => {
     const params = new URLSearchParams(searchParams);
     if (newSelected) params.set(primary, newSelected);
     else params.delete(primary);
-    
+
     replace(`${pathname}?${params}`);
   };
 
   const isSelected = (id: string) => (selected.includes(id) ? "border" : "");
 
   return (
-    <>
+    <Suspense>
       {primaryMissions.map((mission, index) => (
         <AccordionItem
           key={index}
@@ -45,7 +45,7 @@ const PrimaryMissions = () => {
           <MissionCard {...mission} />
         </AccordionItem>
       ))}
-    </>
+    </Suspense>
   );
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { gambits } from "@/assets/mocks/missions";
@@ -48,7 +48,7 @@ const SelectGambit = () => {
   };
 
   return (
-    <>
+    <Suspense>
       {!hidden && (
         <Button classes="mb-2 w-full" onClick={hideRandom}>
           Nascondi Random
@@ -73,7 +73,7 @@ const SelectGambit = () => {
             {rule}
           </AccordionItem>
         ))}
-    </>
+    </Suspense>
   );
 };
 

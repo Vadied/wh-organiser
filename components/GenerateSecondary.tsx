@@ -1,11 +1,12 @@
 "use client";
 
+import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import Button from "./Button";
-import { secondaryMissions } from "@/assets/mocks/missions";
-import { useState } from "react";
+
 import { generateRandomIds } from "@/js/utils";
+import { secondaryMissions } from "@/assets/mocks/missions";
 import { secondary } from "@/assets/params";
+import Button from "./Button";
 
 const GenerateSecondary = () => {
   const searchParams = useSearchParams();
@@ -36,12 +37,14 @@ const GenerateSecondary = () => {
   };
 
   return (
-    <div className="flex gap-5 mb-4 w-full justify-between">
-      <Button onClick={generate}>Genera</Button>
-      <Button type={isFixed ? "primary" : "secondary"} onClick={toggleFixed}>
-        Fixed
-      </Button>
-    </div>
+    <Suspense>
+      <div className="flex gap-5 mb-4 w-full justify-between">
+        <Button onClick={generate}>Genera</Button>
+        <Button type={isFixed ? "primary" : "secondary"} onClick={toggleFixed}>
+          Fixed
+        </Button>
+      </div>
+    </Suspense>
   );
 };
 

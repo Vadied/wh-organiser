@@ -1,12 +1,15 @@
 "use client";
 
+import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import Button from "./Button";
-import { gambits } from "@/assets/mocks/missions";
+
 import { generateRandomNumbers } from "@/js/utils";
-import { useState } from "react";
-import { Gambit } from "@/types/missions";
 import { gambit } from "@/assets/params";
+import { gambits } from "@/assets/mocks/missions";
+
+import { Gambit } from "@/types/missions";
+
+import Button from "./Button";
 
 const GenerateGambit = () => {
   const searchParams = useSearchParams();
@@ -35,7 +38,7 @@ const GenerateGambit = () => {
   };
 
   return (
-    <>
+    <Suspense>
       <div className="flex gap-5 mb-4 w-full justify-between">
         <Button onClick={generate}>Genera</Button>
       </div>
@@ -44,8 +47,7 @@ const GenerateGambit = () => {
           <div
             key={id}
             className={`p-4 shadow-sm cursor-pointer bg-background rounded mb-4 ${
-              (id === selected &&
-                "border border-color-danger rounded-md ") ||
+              (id === selected && "border border-color-danger rounded-md ") ||
               ""
             }`}
             onClick={setGambit(id)}
@@ -62,7 +64,7 @@ const GenerateGambit = () => {
           </div>
         ))}
       </div>
-    </>
+    </Suspense>
   );
 };
 

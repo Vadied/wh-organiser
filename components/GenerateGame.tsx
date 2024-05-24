@@ -1,11 +1,11 @@
 "use client";
 
+import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Button from "./Button";
 import { deployments, primaryMissions } from "@/assets/mocks/missions";
 import { generateRandomIds } from "@/js/utils";
 import { deploy, fixed, gambit, primary, secondary } from "@/assets/params";
-import { useState } from "react";
 
 const GenerateGame = () => {
   const searchParams = useSearchParams();
@@ -42,15 +42,19 @@ const GenerateGame = () => {
 
   if (isOn)
     return (
-      <Button classes="w-full" onClick={reset}>
-        Reset
-      </Button>
+      <Suspense>
+        <Button classes="w-full" onClick={reset}>
+          Reset
+        </Button>
+      </Suspense>
     );
 
   return (
-    <Button classes="w-full" onClick={generate}>
-      Genera partita
-    </Button>
+    <Suspense>
+      <Button classes="w-full" onClick={generate}>
+        Genera partita
+      </Button>
+    </Suspense>
   );
 };
 

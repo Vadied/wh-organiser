@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { deployments } from "@/assets/mocks/missions";
@@ -35,7 +35,7 @@ const SelectDeploy = () => {
   const isSelected = (id: string) => (selected.includes(id) ? "border" : "");
 
   const selectRandom = () => {
-    const index = Math.floor(Math.random() * (deployments.length));
+    const index = Math.floor(Math.random() * deployments.length);
     const id = deployments[index].id;
     setSelected(id);
     const params = new URLSearchParams(searchParams);
@@ -44,7 +44,7 @@ const SelectDeploy = () => {
   };
 
   return (
-    <>
+    <Suspense>
       <Button classes="mb-2 w-full" onClick={selectRandom}>
         Seleziona Random
       </Button>
@@ -68,7 +68,7 @@ const SelectDeploy = () => {
             />
           </AccordionItem>
         ))}
-    </>
+    </Suspense>
   );
 };
 

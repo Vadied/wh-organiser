@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { secondaryMissions } from "@/assets/mocks/missions";
@@ -48,7 +48,7 @@ const SelectSecondary = () => {
   const isSelected = (id: string) => (selected.includes(id) ? "border" : "");
 
   return (
-    <>
+    <Suspense>
       <div className="flex justify-end gap-4 items-center">
         <div>Selezionate : {selected.length}/2</div>
         <Button classes="mb-2" onClick={toggleFixed}>
@@ -68,7 +68,7 @@ const SelectSecondary = () => {
             {rule}
           </AccordionItem>
         ))}
-    </>
+    </Suspense>
   );
 };
 
