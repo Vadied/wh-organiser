@@ -12,7 +12,7 @@ const getColor = (color: string) => {
 
 type Props = {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: Event) => void;
   disabled?: boolean;
   type?: "primary" | "secondary";
   classes?: string;
@@ -24,9 +24,11 @@ const Button = ({
   type = "primary",
   classes = "",
 }: Props) => {
-  const handleClick = () => {
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (disabled || !onClick) return;
-    onClick();
+    onClick(e);
   };
 
   return (

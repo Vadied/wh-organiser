@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Button from "./Button";
 
 const minusIcon = "-";
 const plusIcon = "+";
@@ -10,14 +11,18 @@ type Props = {
   children: React.ReactNode;
   isOpen?: boolean;
   classes?: string;
-  onClick?: () => void;
+  onToggle?: () => void;
+  onAction?: (e: Event) => void;
+  actionLabel?: string;
 };
 const AccordionItem = ({
   classes = "",
   title,
   children,
   isOpen = false,
-  onClick,
+  onToggle,
+  onAction,
+  actionLabel = "Azione",
 }: Props) => {
   const [extended, setIsExtended] = useState(isOpen);
 
@@ -25,9 +30,10 @@ const AccordionItem = ({
     e.preventDefault();
     e.stopPropagation();
 
-    if (onClick) return onClick();
     setIsExtended(!extended);
+    if (onToggle) onToggle();
   };
+
   return (
     <div
       className={`p-4 shadow-sm cursor-pointer bg-background rounded ${classes}`}
@@ -35,7 +41,11 @@ const AccordionItem = ({
     >
       <div className="text-left items-center select-none flex justify-between flex-row">
         <h5 className="flex-1">{title}</h5>
-        <div className="flex-none">{extended ? minusIcon : plusIcon}</div>
+
+        <div className="flex gap-2 items-center">
+          <div className="flex-none">{extended ? minusIcon : plusIcon}</div>
+          {onAction && <Button onClick={onAction}>{actionLabel}</Button>}
+        </div>
       </div>
       <div
         className={`rounded h-full overflow-auto transition-all duration-500 ease-in ${

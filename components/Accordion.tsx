@@ -10,22 +10,22 @@ type Props = {
 const Accordion = ({ items, title = "" }: Props) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const handleClick = (index: number) => {
+  const handleClick = (index: number) => () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
     <>
       <h2>{title}</h2>
-      {items.map((item, index) => (
+      {items.map(({ title, content }, index) => (
         <AccordionItem
           key={index}
           classes="mb-2"
-          title={item.title}
+          title={title}
           isOpen={openIndex === index}
-          onClick={() => handleClick(index)}
+          onClick={handleClick(index)}
         >
-          {item.content}
+          {content}
         </AccordionItem>
       ))}
     </>
